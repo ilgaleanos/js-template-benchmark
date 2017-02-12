@@ -1,19 +1,19 @@
 var fs = require('fs');
-var dot = require('dot');
-var compiled;
+var pug = require('pug');
 var tplData;
+var compiled;
 
 module.exports.prepare = function (data, done) {
-	var str = fs.readFileSync(__dirname + '/tpl_escaped.dot', 'utf8');
+	var str = fs.readFileSync(__dirname + '/tpl_escaped.pug', 'utf8');
 	tplData = data;
-	compiled = dot.template(str);
+	compiled = pug.compile(str);
 	done();
 };
 
 module.exports.prepareUnescaped = function (data, done) {
-	var str = fs.readFileSync(__dirname + '/tpl_unescaped.dot', 'utf8');
+	var str = fs.readFileSync(__dirname + '/tpl_unescaped.pug', 'utf8');
 	tplData = data;
-	compiled = dot.template(str);
+	compiled = pug.compile(str);
 	done();
 };
 

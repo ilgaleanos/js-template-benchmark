@@ -3,7 +3,7 @@ var renderer;
 var tplData;
 var tpl;
 
-renderer = new ECT({ root: __dirname, cache: true, debug: true });
+renderer = new ECT({ root: __dirname, cache: true, debug: false });
 
 module.exports.prepare = function (data, done) {
 	tplData = data;

@@ -1,19 +1,19 @@
 var fs = require('fs');
-var dot = require('dot');
-var compiled;
+var jsrender = require('jsrender');
 var tplData;
+var compiled;
 
 module.exports.prepare = function (data, done) {
-	var str = fs.readFileSync(__dirname + '/tpl_escaped.dot', 'utf8');
+	var str = fs.readFileSync(__dirname + '/tpl_escaped.jsrender', 'utf8');
 	tplData = data;
-	compiled = dot.template(str);
+	compiled = jsrender.templates(str);
 	done();
 };
 
 module.exports.prepareUnescaped = function (data, done) {
-	var str = fs.readFileSync(__dirname + '/tpl_unescaped.dot', 'utf8');
+	var str = fs.readFileSync(__dirname + '/tpl_unescaped.jsrender', 'utf8');
 	tplData = data;
-	compiled = dot.template(str);
+	compiled = jsrender.templates(str);
 	done();
 };
 
